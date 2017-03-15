@@ -1,0 +1,34 @@
+{"ReflexCaméras":[
+  {"nom":"EOS 700D","marque":"Canon", "Pixel":"18 Mpixels","Prix":"539 euro TTC"},
+  {"nom":"EOS 750D","marque":"Canon", "Pixel":"24,2 Mpixels","Prix":"629,00€ TTC"},
+  {"nom":"EOS 80D","marque":"Canon", "Pixel":"24,2 Mpixels","Prix":"1 169,00€ TTC"},
+  {"nom":"D3300","marque":"Nikon", "Pixel":"24 Mpixels","Prix":"399,00 € TTC"},
+  {"nom":"D3300","marque":"Nikon", "Pixel":"24 Mpixels","Prix":"579,00€ TTC"},
+  {"nom":"D3400","marque":"Nikon", "Pixel":"24 Mpixels","Prix":"449,00€ TTC"}
+],
+"caméscope":[
+  {"nom":"Handycam  A", "marque":"Sony", "Pixel":"8,29 mégapixels", "Prix":"949,00€ TTC"},
+  {"nom":"HC-VX980", "marque":"Panasonic", "Pixel":"7 Mégapixels", "Prix":"729,00€ TTC"},
+  {"nom":"Handycam 4K AX33B", "marque":"Sony", "Pixel":"10,3 Mégapixels"," Prix":"699,00€ TTC"},
+  {"nom":"HC-X1000E", "marque":"Panasonic", "Pixel":"7 Mégapixels", "Prix":"2 299,00€ TTC"},
+  {"nom":"Handycam PJ410", "marque":"Sony", "Pixel":"9,2 Mégapixels", "Prix":"349,00€ TTC"},
+  {"nom":"HC-W580", "marque":"Panasonic", "Pixel":"1,6 Mégapixels", "Prix":"359,00€ TTC"}
+]
+,
+"micro":[
+  {"nom":"VideoMic GO", "marque":"Rode", "réponse_de_fréquence":"100hz-16kHz", "rapport_signal_bruit":"60dB", "Maximum_de_pression_sonore":"", "bande_passante":"", "bruit_propre_équivalent":"", "Prix":"73,00€"},
+  {"nom":"USB NT-USB", "marque":"Rode", "réponse_de_fréquence":"", "rapport_signal_bruit":"", "Maximum_de_pression_sonore":"110dB", "bande_passante":"20Hz - 20kHz", "bruit_propre_équivalent":"", "Prix":"179,00 €"},
+  {"nom":"microphone MKE 400", "marque":"SENNHEISER ", "réponse_de_fréquence":"40Hz à 20 kHz", "rapport_signal_bruit":"", "Maximum_de_pression_sonore":" 126", "bande_passante":"", "bruit_propre_équivalent":"+30 dB", "Prix":"164,90 €"},
+  {"nom":"microphone ST-01", "marque":"GENESIS GEAR", "réponse_de_fréquence":"", "rapport_signal_bruit":"76dB", "Maximum_de_pression_sonore":"", "bande_passante":"", "bruit_propre_équivalent":"", " Prix":"39,90 €"},
+  {"nom":"micro canon AT897", "marque":"AUDIO-TECHNICA", "réponse_de_fréquence":"20 - 20 000 hz ", "rapport_signal_bruit":"77 dB,", "Maximum_de_pression_sonore":"", "bande_passante":"", "bruit_propre_équivalent":"+30 dB", "Prix":"239,90 €"},
+  {"nom":"microphone canon VP83F", "marque":"SHURE", "réponse_de_fréquence":"", "rapport_signal_bruit":"", "Maximum_de_pression_sonore":"", "bande_passante":"", "bruit_propre_équivalent":"+30 dB", "Prix":"333,00 €"}
+]
+,"accessoire":[
+  {"nom":"Sport", "marque":"PNJ CAM ", "type":"Trépied modulable", "Ouverture":"", "Prix":"24,90€ TTC"},
+  {"nom":"Canon EF 70-300mm f/4-5,6 IS USM", "marque":"Canon","type":"Objectif zoom", "Ouverture":"", "Modèle_compatible":"", "Prix":"459,00€ TTC"},
+  {"nom":"LP-E6N", "marque":"Canon", "type":"batterie", "Ouverture":"", "Modèle_compatible":"EOS 5D Mark II / EOS 5D Mark III", "Prix":"69,90€ TTC"},
+  {"nom":"Sacoche TBC-405", "marque":"Caselogic ", "type":"Sacoche pour appareil photo numérique", "Ouverture":"", "Modèle_compatible":"Taille 140 x 99 x 114 mm", "Prix":"24,90€ TTC"},
+  {"nom":"F-Pro S03 MRC Ø67mm", "marque":"F-Pro", "type":"Filtre pour objectif photo B+W Filtre polarisant circulaire", "Ouverture":"", "Modèle_compatible":"", "Diamètre":"67 mm", "Prix":"109,90€ TTC"},
+  {"nom":"Télécommande ML-L3", "marque":"Nikon", "type":"Infrarouge", "Ouverture":"", "Modèle_compatible":"Coolpix... P7000 / D40 / D50", "Prix":"34,90€ TTC"}
+]
+}

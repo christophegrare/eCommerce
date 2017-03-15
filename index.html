@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CameSpot</title>
+  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ionicons.css">
+  <link rel="stylesheet" type="text/css"  href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css"  href="assets/css/panier-footer-style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="jquery.3.1.1.js"></script>
+  <link rel="icon" href="img/camespot-logo.png">
+</head>
+<body>
+  <!--Modal_Connexion-->
+  <div class="container">
+    <div class="modal fade" id="Modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Connexion</h4>
+          </div>
+          <br>
+          <div class="modal-body">
+            <br>
+            <label for="username"></label>Nom d'utilisateur :<input type="text" name="username" id="name" placeholder="Nom d'utilisateur" maxlength="30" size="15" style="width: 45%;"><br><br>
+            <label for="password"></label>&nbsp;&nbsp;&nbsp;&nbsp; Mot de passe :<input type="text" name="prenom" id="prm" placeholder="Mot de passe" maxlength="30" size="15" style="width: 45%;"><br><br>
+            <button id="but" type="button" class="btn btn-default" data-dismiss="modal">Connexion</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+            <div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin Modal_Connexion-->
+  <!-- Modal_Inscription-->
+  <div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Inscription</h4>
+          </div>
+          <br>
+          <div class="modal-body">
+            <form class="" action="index.html" method="post">
+              <div id="registration_gender" class="registration-gender select-register"></div>
+              <div id="registration_gender" class="registration-gender select-register">
+                <input id="registration_gender_0" name="registration[gender]" required="required" value="_UE_M" type="radio">
+                <label for="registration_gender_0"> Homme </label>
+                <input id="registration_gender_1" name="registration[gender]" required="required" value="_UE_MRS" type="radio">
+                <label for="registration_gender_1"> Femme </label>
+              </div>
+              <br>
+              <label for="username"></label><input type="text" name="username" id="username" placeholder="Nom" maxlength="30" size="15" style="width: 39%;">
+              <label for="prenom"></label><input type="text" name="prenom" id="prenom" placeholder="Prenom" maxlength="30" size="15" style="width: 40%;"><br><br>
+              <label for="email"></label><input type="email" name="email" placeholder="E-mail" maxlength="60" size="15" style="width: 80%;">&nbsp;<br><br>
+              <label for="password"></label><input type="password" name="password" id="password" placeholder="Mot de passe" maxlength="60" size="15" style="width: 80%;"><br><br>
+              <label for="password"></label><input type="confirmation" name="confirmation" id="confirmation" placeholder="Confirmer le mot de passe" maxlength="60" size="15" style="width: 80%;"><br><br>
+              <label for="naissance"></label><input type="text" name="naissance" id="naissance" placeholder="Date de naissance" maxlength="30" size="15" style="width: 80%;"><br><br>
+              <button type="button" class="btn btn-default" data-dismiss="modal">S'inscrire</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+              <div>
+                <br>
+                <label><input checked="checked" type="checkbox" for="registration_newsletterFlag">  Oui, je souhaite m'inscrire à la newsletter qui me permettra de recevoir par e-mail les promotions et les réductions exclusives proposées aux abonnés !</label>
+              </div>
+              <br>
+              <div class="form-action">
+                <p class="smallprint">
+                  En vous inscrivant par e-mail, vous acceptez les
+                  <a href="">Conditions Générales</a>
+                  et la
+                  <a href="">Politique de Confidentialité</a>
+                  Les informations ci-dessus sont toutes obligatoires pour devenir membre. Elles sont collectées par CameSpot afin de créer votre compte,communiquer avec nous ou les membres et, le cas échéant, mettre un terme à notre relation.Vous disposez d'un droit d’accès, de rectification et d’opposition.
+                  <label><input checked="checked" type="checkbox" for="registration_newsletterFlag"> Je certifie exactes les informations renseignées dans les champs ci-dessus et conforme à chaque libellé et accepte que celles-ci servent de base à la facturation de mes prochaines commandes.</label>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin modal_Inscription-->
+  <!-- Début du Modale
+  ================================================== -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle">Panier</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Body de la modale du panier -->
+        <div class="modal-body">
+          <h1 id="article_basket">Mes articles</h1>
+
+          <div class="shopping-cart">
+
+            <div class="column-labels">
+              <label class="product-image">Image</label>
+              <label class="product-details">Produits</label>
+              <label class="product-price">Prix</label>
+              <label class="product-quantity">Quantité</label>
+              <label class="product-removal">Supprimer</label>
+              <label class="product-line-price">Total</label>
+            </div>
+            <!-- Début structure d'ajout au panier d'un produit -->
+            <div class="product">
+              <div class="product-image">
+                <img src="">
+              </div>
+              <div class="product-details">
+                <div class="product-title"></div>
+                <p class="product-description"></p>
+              </div>
+              <div class="product-price"></div>
+              <div class="product-quantity">
+                <input type="number" value="1" min="1">
+              </div>
+              <div class="product-removal">
+                <button class="remove-product">
+                  Supprimer
+                </button>
+              </div>
+              <div class="product-line-price"></div>
+            </div>
+            <!-- Fin de la structure d'un produit au panier -->
+            <!-- Début calcul en fonction des produits dans le panier -->
+            <div class="totals">
+              <div class="totals-item">
+                <label>Hors Taxes</label>
+                <div class="totals-value" id="cart-subtotal"></div>
+              </div>
+              <div class="totals-item">
+                <label>Taxe (5%)</label>
+                <div class="totals-value" id="cart-tax"></div>
+              </div>
+              <div class="totals-item">
+                <label>Livraison</label>
+                <div class="totals-value" id="cart-shipping"></div>
+              </div>
+              <div class="totals-item totals-item-total">
+                <label>Total</label>
+                <div class="totals-value" id="cart-total"></div>
+              </div>
+            </div>
+            <!-- Fin du calcul en fonction des produits dans le panier -->
+          </div>
+          <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+          <script src="assets/js/index.js"></script>
+        </div>
+        <!-- Fin du body de la modale -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary">Commander</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin de la modale
+  ================================================== -->
+  <div class="container-fluid">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="outline" class="navbar-brand" href="#">CameSpot <img src="img/camespot-logo.png" alt=""></a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a id="nav_reflexCam" href="#reflex_cam">Reflex Cameras</a></li>
+          <li><a id="nav_camNum" href="#camescope_num">Camescopes</a></li>
+          <li><a id="nav_microCam" href="#micro_cam">Micros</a></li>
+          <li><a id="nav_camTool" href="#cam_tool">Accessoires</a></li>
+        </ul>
+        <ul id="taille" class="nav navbar-nav navbar-right">
+          <li><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Panier</button></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#Modal" ><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Début de la catégorie Reflex Caméras ================================================= -->
+    <div id="reflex_cam" class="div_tab">
+      <div class="row">
+        <h1 class="col-lg-offset-3 col-lg-6">Reflex Caméras</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.nikon.fr/fr_FR/product/digital-cameras/slr/consumer/d3400" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Photographes débutants mais exigeants, le reflex Nikon D3400 vous offre une qualité d'image exceptionnelle. Avec son capteur CMOS de 24 mégapixels sans filtre passe-bas, son viseur de qualité, sa vidéo en Full HD à 60p et sa nouvelle compatibilité Snapbridge pour partager vos photos instantanément, le reflex D3400 vous accompagne dans toutes les étapes de la prise de vue !</p></a>
+          <h5><strong>Nikon D3400</strong></h5>
+          <img src="img/nikon_d3400.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 449,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.nikon.fr/fr_FR/product/digital-cameras/slr/consumer/d3300" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Photographes débutants mais exigeants, le reflex Nikon D3300 vous offre une qualité d'image exceptionnelle. Avec son capteur CMOS de 24 mégapixels sans filtre passe-bas, son nouveau viseur, sa réactivité boostée en rafale et sa vidéo en Full HD à 60p, le D3300 vous accompagne dans toutes les étapes de la prise de vue pour votre plus grand plaisir en photo et en vidéo !</p></a>
+          <h5><strong>Nikon D3300 + 18-105 VR</strong></h5>
+          <img src="img/Nikon_D3300 -18-105-VR.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 579,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.nikon.fr/fr_FR/product/digital-cameras/slr/consumer/d3300" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Photographes débutants mais exigeants, le reflex Nikon D3300 vous offre une qualité d'image exceptionnelle. Avec son capteur CMOS de 24 mégapixels sans filtre passe-bas, son nouveau viseur, sa réactivité boostée en rafale et sa vidéo en Full HD à 60p, le D3300 vous accompagne dans toutes les étapes de la prise de vue pour votre plus grand plaisir en photo et en vidéo !</p></a>
+          <h5><strong>Nikon D3300 + 18-55 VR</strong></h5>
+          <img src="img/Nikon_D3300-18-55-VR.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 399,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.canon.fr/for_home/product_finder/cameras/digital_slr/eos_750d/" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le reflex numérique EOS 750D de Canon offre des prestations de qualité à l'instar du très bon Canon EOS 700D qu'il remplace ! Il se démarque par un nouveau capteur doté de 24 millions de pixels, un processeur DIGIC 6 ème génération, un écran tactile orientable, l'autofocus continu pendant la vidéo, vidéo HD... mais surtout, des fonctionnalités en plus ! Amateurs de photo débutants et exigeants, à vos reflex !</p></a>
+          <h5><strong>Canon EOS750D</strong></h5>
+          <img src="img/canon_eos750d.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 629,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.canon.fr/for_home/product_finder/cameras/digital_slr/eos_700d/" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le reflex numérique Canon EOS 700D offre des prestations de qualité ! Au menu, des caractéristiques avérées : un capteur 18 millions de pixels, un processeur DIGIC 5, un écran tactile orientable, l'autofocus continu pendant la vidéo, vidéo HD... mais surtout, des fonctionnalités en plus ! Amateurs de photo débutants et exigeants, à vos reflex !</p></a>
+          <h5><strong>Canon EOS700D</strong></h5>
+          <img src="img/canon_eos700d.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 539,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.canon.fr/for_home/product_finder/cameras/digital_slr/eos-80d/" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Découvrez le nouveau reflex Canon EOS 80D et son capteur exceptionnel CMOS APS-C qui passe à 24,2 millions de pixels et reste équipé de la technologie Dual AF très ingénieuse qui améliore considérablement les performances. Un bijou de technologie en vue !</p></a>
+          <h5><strong>Canon EOS80D</strong></h5>
+          <img src="img/canon_eos80d.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 1169,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <!-- Début de la catégorie Camescopes Numériques ===================================================== -->
+    <div id="camescope_num" class="div_tab" hidden>
+      <div class="row">
+        <h1 class="col-lg-offset-3 col-lg-6">Camescopes Numériques</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.panasonic.com/fr/consumer/appareils-photo-et-camescopes/camescopes/camescopes-familiaux/hc-w580.html" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le Panasonic HC-W580 est un caméscope complet qui offre une qualité d’image remarquable même en basse lumière. La détection des tremblements de la main sur 5 axes vous garantit la clarté et la netteté de vos films. Ce modèle est équipé du wifi et d'une double caméra qui vous permet de réaliser simultanément deux prises de vue.</p></a>
+          <h5><strong>Panasonic HC-W580</strong></h5>
+          <img src="img/Panasonic_HC-W580.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 359,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.panasonic.com/fr/consumer/appareils-photo-et-camescopes/camescopes/camescopes-familiaux/hc-vx980.html" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le Panasonic HC-VX980 est un caméscope complet qui offre une qualité d’image remarquable même en basse lumière. Objectif Leica Dicomar f/1,8, stabilisation optique HYBRID OIS+, vidéo 4K UHD... Goûtez au plaisir de la vidéo avec le caméscope 4K Panasonic HC-VX980 !</p></a>
+          <h5><strong>Panasonic HC-VX980 4K</strong></h5>
+          <img src="img/Panasonic_HC-VX980-4K.png" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 729,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.panasonic.com/be/fr/consumer/cameras-camcorders/camcorder/hc-x1000.html" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>La caméra professionnelle Panasonic HC-X1000E est un caméscope 4k sophistiqué qui enregistre des images 60p/50p 4K sur une carte SD. Il intègre un objectif Leica Dicomar, un nouveau capteur BSI et Chrystal Enfine Pro 4K dans un boitier passe-partout compact !</p></a>
+          <h5><strong>Panasonic HC-X1000E 4K</strong></h5>
+          <img src="img/Panasonic_HC-X1000E-4K.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 2299,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="https://www.sony.fr/electronics/camescopes-handycam/hdr-pj410" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Découvrez le caméscope Sony Handycam PJ410 et enregistrez vos souvenirs de vacances sereinement ! Au programme un zoom 30x stabilisé et projecteur intégré pour projeter vos images n'importe où !</p></a>
+          <h5><strong>Sony HDR-PJ410 + 16GO</strong></h5>
+          <img src="img/Sony_HDR-PJ410.png" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 349,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="https://www.sony.fr/electronics/camescopes-handycam/fdr-ax33" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Découvrez le caméscope Sony Handycam 4K AX33B avec projecteur intégré et réalisez des vidéos 4K avec un niveau de détail jusqu'à quatre fois supérieur à la Full HD ! Au programme : stabilisateur SteadyShot intégré, prise de vue nocturne et un format très compact !</p></a>
+          <h5><strong>Sony FDR-AX33B 4K</strong></h5>
+          <img src="img/Sony_FDR-AX33B-4K.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 699,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="https://www.sony.fr/electronics/camescopes-handycam/fdr-ax53" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Découvrez le caméscope Sony Handycam AX53 4K et réalisez des vidéos 4K TV (3840 x 2160 pixels) ! Au programme de ce superbe caméscope : une image splendide grâce au capteur 1/2,5 pour vidéastes avertis et le plein de fonctionnalités sophistiquées pour laisser libre cours à votre créativité !</p></a>
+          <h5><strong>Sony FDR-AX53 4K</strong></h5>
+          <img src="img/Sony_FDR-AX53-4K.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 949,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <!-- Début de la catégorie Microphones Vidéos ================================================================ -->
+    <div id="micro_cam" class="div_tab" hidden>
+      <div class="row">
+        <h1 class="col-lg-offset-3 col-lg-6">Microphones Vidéo</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://fr.rode.com/microphones/videomicgo" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Enregistrements audio clairs et nets au vol! Compact et léger, le VideoMic GO offre un son clair, ciselé et directionnel ainsi qu’un incroyable confort d’utilisation. Sa directivité resserrée se focalise juste devant le micro et réduit les autres bruits ambiants pour que le signal utile soit séparé des bruits venant des côtés et de l’arrière. La suspension Rycote® Lyre® interne protège le microphone contre les chocs et vibrations risquant d’engendrer des interférences. Fabriqué en une pièce thermoplastique résistant à l’usure, le berceau Lyre® offre une suspension acoustique de qualité supérieure aux suspensions élastiques traditionnelles car il ne s’use pas, ne s’affaisse pas et ne rompt pas. Conçu pour être aussi facile à utiliser que possible, le VideoMic GO n’a ni boutons ni réglages et est alimenté par l’entrée micro de la caméra. Il n’a donc pas besoin de piles. Le VideoMic GO est conçu et fabriqué en Australie.</p></a>
+          <h5><strong>Rode VideoMic GO</strong></h5>
+          <img src="img/rode_videomic-go.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 73,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://fr-fr.sennheiser.com/petit-microphone-pour-cameras-mke-400" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Microphone canon très compact pour caméras avec sabot pour griffe porte-accessoire et entrée microphone externe. Rejet maximal du bruit latéral. Robuste boîtier entièrement métallique.</p></a>
+          <h5><strong>Sennheiser MKE 400</strong></h5>
+          <img src="img/sennheiser_MKE-400.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 164,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://fr.rode.com/microphones/nt-usb" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le NT-USB est un micro extrêmement polyvalent, pouvant enregistrer des signaux latéraux et convenant aussi bien pour enregistrer le chant et la musique que pour les podcasts et les voice-overs. Il peut être utilisé avec tous les logiciels d’enregistrement courants tournant sous Windows et Mac OS ainsi qu’avec un Apple iPad. Pour ce dernier, vous avez le choix entre l’application “RØDE Rec”, “GarageBand” ou toute autre application d’enregistrement acceptant un micro externe. Pour utiliser le micro avec un Apple iPad, il faut un adaptateur USB et l’Apple Camera Connection Kit. Le corps du NT-USB dispose d’une prise casque stéréo (3,5mm) pour une écoute sans latence ainsi que des commandes permettant de régler le niveau d’écoute et le mixage entre les signaux de l’ordinateur ou de l’iPad et du micro. L’excellent filtre anti-pop fourni s’adapte à la base du micro et place l’écran à une distance optimale de la capsule pour minimiser l’effet des plosives (“B”, “T” et “P”) dégradant le chant ou la parole. Il est également fourni avec une fixation de qualité pour pied de micro avec filetage 3/8”, un pied à poser sur table et un étui permettant de ranger le micro.</p></a>
+          <h5><strong>Rode NT-USB</strong></h5>
+          <img src="img/rode_NT-USB.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 179,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.genesisgear.pl/fr/microphones-cine/95-genesis-st-01-stereofoniczny-mikrofon-kierunkowy" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le microphone Genesis ST-01 n'a rien à envier à la concurrence avec sa haute sensibilité de -4 DB et son ratio signal/bruit de 76dB.  Son angle d'enregistrement  peut être réglé sur 90° ou 120°. Enregistrez avec précision votre source sonore depuis plusieurs mètres. A part sa haute sensibilité et sa large gamme de fréquences, il garantit un son cristallin et dynamique dans toutes les conditions d'enregistrement, que ce soit pour un film, un concert ou une interview. Le dispositif est alimenté par une pile bouton lithium CR1632 3V.</p></a>
+          <h5><strong>Genesis Gear ST-01</strong></h5>
+          <img src="img/GENESIS_GEAR-ST-01.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 39,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.audio-technica.com/cms/wired_mics/1ed12c46e64eefd3/index.html" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Ce micro canon court fonctionne sur batterie ou alimentation fantôme et permet une prise de son exceptionnelle à longue distance grâce à l’angle étroit fournit par la directivité en ligne + gradient. Il est également caractérisé par un son dans l’axe naturel et fluide et un excellent niveau de rejet hors axe venant des côtés et de l’arrière du micro.</p></a>
+          <h5><strong>Audio-Technica AT897</strong></h5>
+          <img src="img/audiotechnica_at897.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 239,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.shure.fr/produits/microphones/vp83f" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Conçu pour une utilisation avec des appareils photos reflex numériques et les caméscopes, le VP83F intègre un enregistreur/lecteur sur carte microSDHC permettant l'enregistrement de fichiers wav au format 24 bits à la fréquence de 48 kHz. Délivrant une qualité audio haute définition, ce micro canon très compact utilise un menu très intuitif et des commandes directement accessibles, facilitant l'exploitation par l'opérateur en toutes circonstances. Sa capsule supercardioïde lobaire assure une excellente captation même en environnement bruyant. Fourni avec un câble jack 3,5mm détachable et une bonnette anti-vent. Couvre bonnette fourrure Rycote® disponible en option.</p></a>
+          <h5><strong>Shure VP83F</strong></h5>
+          <img src="img/shure_vp83f.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 333,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <!-- Début de la catégorie Accessoires ================================================================= -->
+    <div id="cam_tool" class="div_tab" hidden>
+      <div class="row">
+        <h1 class="col-lg-offset-3 col-lg-6">Accessoires</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.materiel.net/filtre-pour-objectif-photo/b-w-filtre-polarisant-circulaire-f-pro-s03-mrc-o67mm-105092.html#caracDetail" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Les filtres polarisants B+W éliminent les reflets lumineux gênants et augmentent la saturation des couleurs. Si le sujet est placé derrière ou sur une surface réfléchissante ou s'il présente des surfaces brillantes, l'emploi d'un filtre polarisant s'impose pour obtenir un résultat sans reflets gênants avec des couleurs agréablement saturées.</p></a>
+          <h5><strong>B+W F-Pro S03 67mm</strong></h5>
+          <img src="img/B+W_F-ProS0367mm.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 109,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="http://www.canon.fr/lenses/ef-70-300mm-f-4-5-6-is-usm-lens/" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Le zoom téléobjectif EF 70-300mm f/4-5.6 IS USM a été mis au point pour répondre aux normes de rendement élevées que les photographes d'aujourd'hui exigent. Sa technologie de stabilisation d'image améliorée permet jusqu'à trois valeurs de correction de tremblement, tandis que l'option "Mode 2" stabilise les images durant les panoramiques sur un sujet en mouvement.</p></a>
+          <h5><strong>Canon EF 70-300mm</strong></h5>
+          <img src="img/Canon_EF-70-300.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 459,00€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.canon.fr/for_home/product_finder/camcorders/high_definition_hd/counterfeit_batteries.aspx" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Batterie propriétaire rechargeable pour reflex Canon, modèle(s) compatible(s) : EOS 5D Mark II / EOS 5D Mark III / EOS 6D / EOS 7D / EOS 60D / EOS 60Da / EOS 70D/ EOS 7D Mark II</p></a>
+          <h5><strong>Canon Batterie LP E6N</strong></h5>
+          <img src="img/Canon_Batterie-LP-E6N.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 69,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-1 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="https://www.pnj-cam.com/fr/accessoires/579-petite-perche-trepied-petite-malette-de-rangement-3760196437130.html" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Idéal pour réaliser des prises de vues originales, le trépied modulable s'adapte à n'importe quelle situation : autour d'un poteau, d'un tube, dans des escaliers, sur un rocher, etc. PNJ Cam : S71 / S70+ / MD10 / S70 / SD23 / SD21 / SD19 / SD18 / SD100 / HD600W ; toutes les caméras de sport GoPro, toutes les caméras de sport: Gamme Rollei et Gamme Geonaute, tous les types d'appareils photo et de caméscopes : Canon, Nikon, Sony, Pentax, Olympus, Casion, Kodak, Lumix, Hitachi, JVC, etc.</p></a>
+          <h5><strong>PNJcam Modulable</strong></h5>
+          <img src="img/PNJcam-modulable.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 24,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-1 col-md-4 block_img">
+          <a href="http://www.nikon.fr/fr_FR/product/accessories/slr/slr-connectivity/remote-control/infrared-remote-control-ml-l3" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>Cette télécommande infrarouge vous permet de déclencher à distance certains appareils photo. Idéal pour les autoportraits, elle permet également d’éviter le bougé d’appareil lors du déclenchement. Compatibilité 	Coolpix... P7000 / D40 / D50 / D60 / D70 / D5000 / D90 / P7100 / D5100, Nikon N1 V1</p></a>
+          <h5><strong>Nikon ML-L3</strong></h5>
+          <img src="img/Nikon-Télécommande-ML-L3.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 34,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-4 block_img">
+          <a href="https://www.caselogic.com/fr-fr/fr/products/camera/cases/sac-pour-appareil-photo-hybridecamescope-_-tbc_-_405_-_black" target="_blank" title="Cliquez pour en savoir plus"><p class="legend_hide hide_legend" hidden>La sacoche TBC-405 assure un rangement modulable pour votre appareil photo et pour un objectif supplémentaire, les câbles ou autres accessoires supplémentaires sont facilement accessibles.</p></a>
+          <h5><strong>Caselogic TBC-405</strong></h5>
+          <img src="img/Caselogic-Sacoche-TBC-405.jpg" class="img-responsive center-block show_legend" alt="">
+          <p>Prix: 24,90€ TTC /<span class="panier"><i class="ion-android-cart logo_bag"></i></span></p>
+        </div>
+      </div>
+    </div>
+    <!-- Début du Footer
+    ================================================== -->
+    <footer>
+      <div class="footer" id="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-offset col-md-offset">
+              <div class="col-lg-2  col-md-2 col-sm-8 col-xs-6">
+                <h3> Camespot </h3>
+                <ul>
+                  <li>
+                    <a href="#"> A propos </a>
+                  </li>
+                  <li>
+                    <a href="#"> Contact </a>
+                  </li>
+                  <li>
+                    <a href="#"> Mentions obligatoires </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                <h3> Aide </h3>
+                <ul>
+                  <li> <a href="#"> Services Clients </a> </li>
+                  <li> <a href="#"> F.A.Q </a> </li>
+                  <li> <a href="#"> CGV </a> </li>
+                </ul>
+              </div>
+              <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                <h3> Conditions </h3>
+                <ul>
+                  <li> <a href="#"> Livraisons </a> </li>
+                  <li> <a href="#"> Retour </a> </li>
+                  <li> <a href="#"> Paiements </a> </li>
+                </ul>
+              </div>
+              <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                <h3> NewsLetter</h3>
+                <ul>
+                  <li>
+                    <div class="input-append newsletter-box text-center">
+                      <input type="text" id="email" class="full text-center" placeholder="Email ">
+                      <button class="btn  bg-gray" type="button"> Envoyer<i class="fa fa-long-arrow-right"> </i> </button>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="social">
+                  <li> <a href="#"> <i class="fa fa-paypal">   </i> </a> </li>
+                  <li> <a href="#"> <i class="fa fa-cc-visa ">   </i> </a> </li>
+                  <li> <a href="#"> <i class="fa fa-cc-mastercard">   </i> </a> </li>
+                  <li> <a href="#"> <i class="fa fa-facebook">   </i> </a> </li>
+                  <li> <a href="#"> <i class="fa fa-instagram">   </i> </a> </li>
+                </ul>
+              </div>
+            </div>
+            <!--/.row-->
+          </div>
+          <!--/.container-->
+        </div>
+        <!--/.footer-->
+        <div class="footer-bottom">
+          <div class="container-fluid">
+            <p class="pull-left"> Copyright © CameSpot 2017. All rights reserved. </p>
+          </div>
+        </div>
+      </div>
+      <!--/.footer-bottom-->
+    </footer>
+  </div> <!-- container-fluid -->
+  <script type="text/javascript" src="assets/js/SmoothScroll.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="commerce.js" charset="utf-8"></script>
+  <script>
+  
+
+  </script>
+</body>
+</html>

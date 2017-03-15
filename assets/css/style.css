@@ -1,0 +1,99 @@
+
+/* Début du css pour le modale */
+.modal-body{
+text-align: center;
+}
+
+.modal-title{
+margin-left: 240px;
+color: white;
+}
+
+.modal-header{
+background-color: #222222 ;
+}
+
+.close{
+color: white;
+}
+
+#taille a, #outline{
+  outline: none;
+}
+
+#but{
+ margin-left: 35px;
+}
+
+/* Début du css pour la page */
+body {
+  font-family: Arial,sans-serif;
+}
+
+.navbar-brand img {
+  display: inline;
+  height: 15px;
+}
+
+.navbar-brand {
+  font-family: Century, Impact, serif;
+}
+
+.div_tab {
+  margin-top: 100px;
+}
+
+.div_tab h1 {
+  margin-bottom: 70px;
+  text-align: center;
+  font-style: italic;
+  font-family: impact, serif;
+  color: black;
+}
+
+.block_img img {
+  margin-bottom: 10px;
+  height: 200px;
+}
+
+.block_img {
+  margin-bottom: 50px;
+}
+
+.block_img h5 {
+  text-align: center;
+}
+
+.block_img p {
+  text-align: center;
+}
+
+.legend_hide {
+  position: absolute;
+  left: 0px;
+  z-index: 2;
+  background-color: #F8E388;
+  height: 230px;
+  width: 100%;
+  opacity: 0.9;
+  color: black;
+  overflow: auto;
+}
+
+.logo_bag {
+  font-size: 32px;
+  color: green;
+}
+
+.panier{
+ cursor:pointer;
+}
+
+#article_basket {
+  text-align: left;
+}
+
+#exampleModalLongTitle {
+  text-align: left;
+  margin-left: 0;
+}
